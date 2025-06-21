@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.edigest.journalApp.dto.CommonRequestModel;
 import com.edigest.journalApp.entity.Users;
 import com.edigest.journalApp.service.UsersService;
+import com.edigest.journalApp.service.WeatherService;
 
 @RestController
 @RequestMapping("/users")
@@ -17,6 +18,9 @@ public class UsersController {
 	
 	@Autowired
 	private UsersService usersService;		
+	
+	@Autowired
+	private WeatherService weatherService;
 	
 	//get user by user name
 	@PostMapping("/getByUserName")
@@ -28,6 +32,12 @@ public class UsersController {
 	@PostMapping("/updateUser")
 	public ResponseEntity<Object> updateUser(@RequestBody Users user){
 		return usersService.updateUser(user);
+	}
+	
+	@PostMapping("/getweather")
+	public ResponseEntity<Object> getweather(@RequestBody CommonRequestModel request){
+		//Authentication authentication = SecurityContextHolder.getContext().getAuthentication();	
+		return weatherService.getweather(request.getText());
 	}
 	
 }
