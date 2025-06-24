@@ -18,13 +18,15 @@ public class AppCache {
 	@Autowired
 	private ConfigJournalRespo configJournalRespo;
 	
-	public Map<String,String> APP_CACHE = new HashMap<>();
+	public Map<String,String> app_cache;
 	
+	//this method will be automatically called when this class bean is loaded 
 	@PostConstruct
-	private void init() {
+	public void init() {
+		app_cache = new HashMap<>();
 		List<ConfigJournalAppEntity> configJournalAppEntities = configJournalRespo.findAll();
 		for(ConfigJournalAppEntity configJournalAppEntity:configJournalAppEntities) {
-			APP_CACHE.put(configJournalAppEntity.getKey(), configJournalAppEntity.getValue());
+			app_cache.put(configJournalAppEntity.getKey(), configJournalAppEntity.getValue());
 		}
 	}
 	

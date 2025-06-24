@@ -22,10 +22,12 @@ public class WeatherService {
 	
 	@Value("${weather.api.key}")
 	private String apikey;
+	//instead of hard coding we are extracting the api from database
 	//private static final String api = "http://api.weatherstack.com/current?access_key=API_KEY&query=CITY";
 
 	public ResponseEntity<Object> getweather(String city) {
-		String finalAPI = appCache.APP_CACHE.get("weather_api").replace("API_KEY",apikey).replace("CITY",city);
+		//Here APP_CACHE is a map and we are using get("weather_api") method to get corresponding value for key=weather_api
+		String finalAPI = appCache.app_cache.get("weather_api").replace("API_KEY",apikey).replace("CITY",city);
 		ResponseEntity<WeatherResponse> response = restTemplate.exchange(finalAPI,HttpMethod.GET,null,WeatherResponse.class);
 		return ResponseEntity.status(HttpStatus.OK).body(response.getBody());
 	}
