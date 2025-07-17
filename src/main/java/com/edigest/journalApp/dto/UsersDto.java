@@ -11,12 +11,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UsersDto {
-	
+
 	private String user_id;
 
 	private String username;
-	
+
 	private String password;
-	
+
+	private String email;
+
+	private boolean sentimentAnalysis;
+
 	List<String> roles = new ArrayList<>();
 }

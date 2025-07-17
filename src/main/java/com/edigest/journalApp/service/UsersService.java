@@ -88,6 +88,8 @@ public class UsersService {
 	            userMap.put("username", user.getUsername());
 	            userMap.put("password", user.getPassword());
 	            userMap.put("roles", user.getRoles());
+	            userMap.put("email", user.getEmail());
+	            userMap.put("sentiment_analysis", user.getSentiment_analysis());
 	            usersList.add(userMap); // Add each user map to the list
 	        }
 	        return ResponseEntity.status(HttpStatus.OK).body(usersList);
@@ -120,6 +122,8 @@ public class UsersService {
 	            userMap.put("username", user.getUsername());
 	            userMap.put("password", user.getPassword());
 	            userMap.put("roles", user.getRoles());
+	            userMap.put("email", user.getEmail());
+	            userMap.put("sentiment_analysis", user.getSentiment_analysis());
 				return ResponseEntity.status(HttpStatus.OK).body(userMap);
 			}
 		}
@@ -157,6 +161,8 @@ public class UsersService {
 	            userMap.put("username", updated.getUsername());
 	            userMap.put("password", updated.getPassword());
 	            userMap.put("roles", updated.getRoles());
+	            userMap.put("email", updated.getEmail());
+	            userMap.put("sentiment_analysis", updated.getSentiment_analysis());
 				return ResponseEntity.status(HttpStatus.OK).body(userMap);
 			}
 		}
