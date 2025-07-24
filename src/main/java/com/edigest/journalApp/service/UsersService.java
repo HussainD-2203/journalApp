@@ -155,6 +155,8 @@ public class UsersService {
 				users.setUsername(body.getUsername());
 				users.setPassword(passwordEncoder.encode(body.getPassword()));
 				users.setRoles(body.getRoles());
+				users.setEmail(body.getEmail());
+				users.setSentiment_analysis(body.getSentiment_analysis());
 				Users updated = usersRepo.save(users);
 				Map<String, Object> userMap = new HashMap<>(); // Create a new map for each user
 	            userMap.put("user_id", updated.getUser_id());
@@ -162,7 +164,7 @@ public class UsersService {
 	            userMap.put("password", updated.getPassword());
 	            userMap.put("roles", updated.getRoles());
 	            userMap.put("email", updated.getEmail());
-	            userMap.put("sentiment_analysis", updated.getSentiment_analysis());
+	            userMap.put("sentiment_analysis", updated.getSentiment_analysis());	            
 				return ResponseEntity.status(HttpStatus.OK).body(userMap);
 			}
 		}

@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
 import com.edigest.journalApp.entity.Users;
-
+	
 public class UsersRepoImpl {
 	
 	@Autowired

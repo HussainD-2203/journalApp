@@ -30,6 +30,7 @@ public class Users {
 	@NonNull
 	private String email;
 	
+	@NonNull
 	private String sentiment_analysis;
 	
 	@DBRef
